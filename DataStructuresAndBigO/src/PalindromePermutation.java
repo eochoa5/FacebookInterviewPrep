@@ -43,12 +43,8 @@ public class PalindromePermutation {
 			
 			if(Character.toString(c).matches("[A-Za-z0-9]")){
 				
-				if(mp.get(c) == null){
-					mp.put(c, 1);
-				}
-				else{
-					mp.put(c, mp.get(c)+1);
-				}
+				mp.put(c, mp.get(c) == null ? 1 : mp.get(c)+1);
+				
 			}
 			
 		}
