@@ -37,16 +37,11 @@ public class PalindromePermutation {
 		
 		Map<Character, Integer> mp = new HashMap<>();
 		
-		int length = 0;
-		
 		for(int i =0; i < phrase.length(); i++){
 			
 			char c = Character.toLowerCase(phrase.charAt(i));
 			
 			if(Character.toString(c).matches("[A-Za-z0-9]")){
-				
-				length++;
-			
 				
 				if(mp.get(c) == null){
 					mp.put(c, 1);
@@ -58,24 +53,17 @@ public class PalindromePermutation {
 			
 		}
 		
-		boolean even = length % 2 == 0;
-		
 		int oddCount = 0;
 		
 		for(Character c: mp.keySet()){
-			//even length phrase all char count must be even
-			if(even){
-				if(mp.get(c) % 2 != 0){return false;}
-			} 
-			else{
-				if(mp.get(c) % 2 != 0){oddCount++;}
-			}	
 			
+			if(mp.get(c) % 2 != 0){oddCount++;}
+				
 		}
 		
-		if(!even && oddCount != 1){return false;}
+		if(oddCount <= 1){ return true;}
 		
-		return true;
+		return false;
 		
 	}
 
